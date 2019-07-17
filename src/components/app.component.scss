@@ -1,0 +1,67 @@
+@import './../icons.scss';
+
+:host {
+  --bg-color: #2f3640;
+  --primary-color: rgb(29, 202, 255);
+  --width: 300px;
+}
+
+.container {
+  width: var(--width);
+}
+
+.searchBox {
+  position: relative;
+  background: #2f3640;
+  border-radius: 40px;
+  display: flex;
+  padding: 0px;
+  border: none;
+  width: 80%;
+  transition: 0.4s;
+}
+
+.searchBox:focus-within {
+  width: 100%;
+}
+
+.searchButton {
+  color: black;
+  cursor: pointer;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 100%;
+  padding: 0 6px;
+}
+
+#input:focus {
+  width: 100%;
+  padding: 0 6px;
+}
+
+#input:focus ~ .searchButton {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: white;
+}
