@@ -3,12 +3,13 @@
 :host {
   --bg-color: #2f3640;
   --bg-color-preview: white;
+  --box-width: 100%;
   --color-preview: grey;
   --preview-color-shadow: rgba(0, 0, 0, 0.2);
   --bg-color-preview-hover: rgb(240, 240, 240);
   --border-radius: 40px;
   --primary-color: rgb(29, 202, 255);
-  --width: 300px;
+  --width: 200px;
 }
 
 .container {
@@ -22,7 +23,7 @@
   display: flex;
   padding: 0px;
   border: none;
-  width: 80%;
+  width: var(--box-width);
   transition: 0.4s;
 }
 
@@ -37,13 +38,19 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.4s;
   outline: none;
-  border-color: var(--primary-color);
+  border: none;
+  background: none;
+  z-index: 9999;
+}
+
+.material-icons {
+  font-size: 24px;
+  color: white;
 }
 
 .searchInput {
@@ -66,7 +73,7 @@
 }
 
 #input:focus ~ .searchButton {
-  background-color: var(--primary-color);
+  display: flex;
   color: white;
   border-color: white;
 }

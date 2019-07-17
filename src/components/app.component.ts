@@ -5,6 +5,7 @@ const componentCSS = require('./app.component.scss');
 /**
  * Searchbar with suggestions
  * @event selected - Dispatches a CustomEvent when nav item is selected. Selected item is stored in detail of Custom event
+ * @cssprop --box-width - Set to less than 100% to have an animation on focus
  * @cssprop --bg-color - Background color of navitem
  */
 @customElement('bronco-searchbar')
@@ -36,7 +37,7 @@ export class BroncoSearchbar extends LitElement {
     console.log(this.searchArray);
     this.inputElement.addEventListener('keyup', () => {
       if (this.inputElement.value.length > 0) {
-        this.filteredArray = this.searchArray.filter(word => word.includes(this.inputElement.value));
+        this.filteredArray = this.searchArray.filter(word => word.includes(this.inputElement.value.toLowerCase()));
       }
       else {
         this.filteredArray = undefined;
@@ -49,10 +50,18 @@ export class BroncoSearchbar extends LitElement {
     <div class="container">
       <div class="searchBox">
         <input id="input" class="searchInput" type="text" name="" placeholder="Search">
+
         <button class="searchButton">
-          <i class="material-icons">
-            search
-          </i>
+          ${this.inputElement && this.inputElement.value ? html` <i @click=${()=> {
+            this.inputElement.value = '';
+            this.filteredArray = undefined;
+            // TODO: Remove focus from input
+            // TODO: Clear filtered array on outside click
+          }
+          } class="material-icons">
+            delete_forever
+          </i>` : ''}
+
         </button>
 
         <!-- Search preview -->
