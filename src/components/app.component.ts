@@ -35,7 +35,7 @@ export class BroncoSearchbar extends LitElement {
   firstUpdated() {
     console.log(this.searchArray);
     this.inputElement.addEventListener('keyup', () => {
-      if (this.inputElement.value.length > 2) {
+      if (this.inputElement.value.length > 0) {
         this.filteredArray = this.searchArray.filter(word => word.includes(this.inputElement.value));
       }
       else {
