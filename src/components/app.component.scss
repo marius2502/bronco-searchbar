@@ -2,6 +2,11 @@
 
 :host {
   --bg-color: #2f3640;
+  --bg-color-preview: white;
+  --color-preview: grey;
+  --preview-color-shadow: rgba(0, 0, 0, 0.2);
+  --bg-color-preview-hover: rgb(240, 240, 240);
+  --border-radius: 40px;
   --primary-color: rgb(29, 202, 255);
   --width: 300px;
 }
@@ -13,7 +18,7 @@
 .searchBox {
   position: relative;
   background: #2f3640;
-  border-radius: 40px;
+  border-radius: var(--border-radius);
   display: flex;
   padding: 0px;
   border: none;
@@ -64,4 +69,50 @@
   background-color: var(--primary-color);
   color: white;
   border-color: white;
+}
+
+
+ul {
+  position: absolute;
+  top: 100%;
+  margin: 0;
+  height: var(--sidebar-min-height);
+  padding: 0;
+  padding: var(--padding-y) 0vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: left;
+  width: 100%;
+  background: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+li {
+  background-color: var(--bg-color-preview);
+  border-radius: var(--border-radius);
+  box-shadow: 0px 8px 15px var(--preview-color-shadow);
+  cursor: pointer;
+  margin-top: 5px;
+  user-select: none;
+  list-style: none;
+  color: var(--color-preview);
+  font-size: 1em;
+  padding: 10px 0px;
+  padding-left: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+}
+
+li:hover {
+  background-color: var(--bg-color-preview-hover);
+  color: var(--primary-color);
 }

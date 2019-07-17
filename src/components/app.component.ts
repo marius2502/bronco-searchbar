@@ -12,6 +12,38 @@ export class BroncoSearchbar extends LitElement {
 
   static styles = css`${unsafeCSS(componentCSS)}`;
 
+  /**
+   *
+   * Defines the shown elements due to input
+   * @type {string[]}
+   * @memberof BroncoSearchbar
+   */
+  @property()
+  filteredArray!: string[] | undefined;
+
+  /**
+   * Commit an array with strings to be searched for
+   * @type {string[]}
+   * @memberof BroncoSearchbar
+   */
+  @property()
+  searchArray: string[] = [];
+
+  @query('#input')
+  inputElement!: HTMLInputElement;
+
+  firstUpdated() {
+    console.log(this.searchArray);
+    this.inputElement.addEventListener('keyup', () => {
+      if (this.inputElement.value.length > 2) {
+        this.filteredArray = this.searchArray.filter(word => word.includes(this.inputElement.value));
+      }
+      else {
+        this.filteredArray = undefined;
+      }
+    });
+  }
+
   render() {
     return html`
     <div class="container">
@@ -22,6 +54,14 @@ export class BroncoSearchbar extends LitElement {
             search
           </i>
         </button>
+
+        <!-- Search preview -->
+        ${this.filteredArray ? html`
+        <ul>
+          ${this.filteredArray.map(word => html`<li>${word}</li>`)}
+        </ul>
+        ` : ''}
+
       </div>
     </div>
 `;
