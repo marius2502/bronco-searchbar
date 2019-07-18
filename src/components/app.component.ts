@@ -15,15 +15,21 @@ export class BroncoSearchbar extends LitElement {
 
   /**
    *
+   * Index of focused suggestion
+   * @type {number}
+   * @memberof BroncoSearchbar
+   */
+  @property()
+  currentIndex: number = 0;
+
+  /**
+   *
    * Defines the shown elements due to input
    * @type {string[]}
    * @memberof BroncoSearchbar
    */
   @property()
   filteredArray!: string[] | undefined;
-
-  @property()
-  currentIndex: number = 0;
 
   /**
    * Commit an array with strings to be searched for
@@ -50,10 +56,10 @@ export class BroncoSearchbar extends LitElement {
   clearInput() {
     this.inputElement.value = '';
     this.filteredArray = undefined;
-    this.currentIndex = 0;
+    this.currentIndex = -1;
   }
 
-  handleKeydown(e: KeyboardEvent) {
+  handleKeyEvents(e: KeyboardEvent) {
     const key = e.key;
     if (key === 'Enter') this.emit(this.filteredArray![this.currentIndex]);
     if (key === 'ArrowDown') {
@@ -92,11 +98,12 @@ export class BroncoSearchbar extends LitElement {
 
   render() {
     return html`
-    <div class="container" @keyup=${(e: KeyboardEvent)=> this.handleKeydown(e)}>
+    <div class="container">
       <div class="searchBox">
-        <input tabindex="0" autocomplete="off" id="input" class="searchInput" type="text" name="" placeholder="Search">
-        <button class="clearBtn">
-          ${this.inputElement && this.inputElement.value ? html` <i @click=${() => this.clearInput()}
+        <input @keyup=${(e: KeyboardEvent) => this.handleKeyEvents(e)} tabindex="0" autocomplete="off" id="input"
+        class="searchInput" type="text" name="" placeholder="Search">
+        <button  @keyup=${(e: KeyboardEvent) => e.key === 'Enter' ? this.clearInput() : ''} tabindex="0" class="clearBtn">
+          ${this.inputElement && this.inputElement.value ? html` <i @click=${()=> this.clearInput()}
             class="material-icons">
             delete_forever
           </i>` : ''}
@@ -106,7 +113,7 @@ export class BroncoSearchbar extends LitElement {
         ${this.filteredArray ? html`
         <ul>
           ${this.filteredArray.map(word => html`<li class="${this.filteredArray![this.currentIndex] === word ? 'focused' : ''}"
-            @click=${()=> this.emit(word)}>${word}</li>`)}
+            @click=${() => this.emit(word)}>${word}</li>`)}
         </ul>
         ` : ''}
 
