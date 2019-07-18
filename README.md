@@ -5,7 +5,7 @@
 
 <p class="codepen" data-height="311" data-theme-id="0" data-default-tab="html,result" data-user="marius2502" data-slug-hash="MMzboL" style="height: 311px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="bronco-button">
   <span>See the Pen <a target="_blank" href="https://codepen.io/marius2502/pen/MMzboL/">
-  bronco-button</a> by marius2502 (<a target="_blank" href="https://codepen.io/marius2502">@marius2502</a>)
+  bronco-searchbar</a> by marius2502 (<a target="_blank" href="https://codepen.io/marius2502">@marius2502</a>)
   on <a target="_blank" href="https://codepen.io">CodePen</a>.</span>
 </p>
 
@@ -29,17 +29,28 @@ import '@marius/broncosearchbar/dist/main';
 
 Searchbar with suggestions
 
+### Properties
+
+| Property        | Type               | Default      | Description                                     |
+|-----------------|--------------------|--------------|-------------------------------------------------|
+| `clickoutside`  | `void \| ""`       |              |                                                 |
+| `currentIndex`  | `number`           | 0            | Index of focused suggestion                     |
+| `filteredArray` | `string[]`         | **required** | Defines the shown elements due to input         |
+| `inputElement`  | `HTMLInputElement` | **required** |                                                 |
+| `searchArray`   | `string[]`         |              | Commit an array with strings to be searched for |
+
 ### Events
 
 | Event      | Description                                      |
 |------------|--------------------------------------------------|
-| `selected` | Dispatches a CustomEvent when nav item is selected. Selected item is stored in detail of Custom event |
+| `selected` | Dispatches a CustomEvent when search item is selected. Selected item is stored in detail of Custom event |
 
 ### CSS Custom Properties
 
-| Property     | Description                 |
-|--------------|-----------------------------|
-| `--bg-color` | Background color of navitem |
+| Property      | Description                                      |
+|---------------|--------------------------------------------------|
+| `--bg-color`  | Background color of navitem                      |
+| `--box-width` | Set to less than 100% to have an animation on focus |
 
 
 
