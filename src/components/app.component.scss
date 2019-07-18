@@ -1,15 +1,16 @@
 @import './../icons.scss';
 
 :host {
-  --bg-color: #2f3640;
+  --bg-color: rgba(233, 233, 233, 0.315);
   --bg-color-preview: white;
-  --box-width: 100%;
+  --box-width: 80%;
+  --color: black;
   --color-preview: grey;
   --preview-color-shadow: rgba(0, 0, 0, 0.2);
   --bg-color-preview-hover: rgb(240, 240, 240);
   --border-radius: 40px;
   --primary-color: rgb(29, 202, 255);
-  --width: 200px;
+  --width: 280px;
 }
 
 .container {
@@ -18,8 +19,9 @@
 
 .searchBox {
   position: relative;
-  background: #2f3640;
+  background: var(--bg-color);
   border-radius: var(--border-radius);
+  box-shadow: 0px 2px 2px rgba(128, 128, 128, 0.322);
   display: flex;
   padding: 0px;
   border: none;
@@ -31,7 +33,7 @@
   width: 100%;
 }
 
-.searchButton {
+.clearBtn {
   color: black;
   cursor: pointer;
   float: right;
@@ -46,11 +48,12 @@
   border: none;
   background: none;
   z-index: 9999;
+  padding-right: 20px;
 }
 
 .material-icons {
   font-size: 24px;
-  color: white;
+  color: var(--color);
 }
 
 .searchInput {
@@ -59,7 +62,7 @@
   outline: none;
   float: left;
   padding: 0;
-  color: white;
+  color: var(--color);
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
@@ -72,7 +75,7 @@
   padding: 0 6px;
 }
 
-#input:focus ~ .searchButton {
+#input:focus ~ .clearBtn {
   display: flex;
   color: white;
   border-color: white;
@@ -119,7 +122,8 @@ li {
   align-items: center;
 }
 
-li:hover {
+li:hover, .focused {
   background-color: var(--bg-color-preview-hover);
   color: var(--primary-color);
+  outline: none;
 }
