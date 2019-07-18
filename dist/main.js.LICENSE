@@ -1155,99 +1155,44 @@
 
 //# sourceMappingURL=lit-element.js.map
 
-// CONCATENATED MODULE: ./node_modules/lit-html/directives/class-map.js
-
-/**
- * @license
- * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at
- * http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at
- * http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at
- * http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at
- * http://polymer.github.io/PATENTS.txt
- */
-
-// On IE11, classList.toggle doesn't accept a second argument.
-
-// Since this is so minor, we just polyfill it.
-
-/**
- * Stores the ClassInfo object applied to a given AttributePart.
- * Used to unset existing values when a new ClassInfo object is applied.
- */
-
-// handle static classes
-
-// remove old classes that no longer apply
-
-// add new classes
-
-// We explicitly want a loose truthy check here because
-
-// it seems more convenient that '' and 0 are skipped.
-
-/**
- * Stores AttributeParts that have had static classes applied (e.g. `foo` in
- * class="foo ${classMap()}"). Static classes are applied only the first time
- * the directive is run on a part.
- */
-
-// Note, could be a WeakSet, but prefer not requiring this polyfill.
-
-//# sourceMappingURL=class-map.js.map
-
 // CONCATENATED MODULE: ./src/components/app.component.ts
 
 /**
- * Modern left navbar built with Lit-Element
- * @event selected - Dispatches a CustomEvent nav item is selected. Selected item is stored in detail of Custom event
- * @cssprop --bg-color - Background color
- * @cssprop --bg-color-hover - Background color when hovered
- * @cssprop --color - text color
- * @cssprop --color-hover - text color when hovered
- * @cssprop --color-selected - text color when item is selected
- * @cssprop --item-width - Width of nav items
- * @cssprop --item-height - Height of nav items
- * @cssprop --margin-top - Margin to the top
- * @cssprop --min-width - Width of button
- * @cssprop --position - Possible change position attribute
- * @cssprop --primary-color - Change primary color easily
- * @cssprop --shadow-x - Shadow-x of button
- * @cssprop --shadow-y - Shadow-y of button
+ * Searchbar with suggestions
+ * @event selected - Dispatches a CustomEvent when search item is selected. Selected item is stored in detail of Custom event
+ * @cssprop --box-width - Set to less than 100% to have an animation on focus
+ * @cssprop --bg-color - Background color of navitem
  */
 
 /**
-     * Modern left navbar built with Lit-Element
-     * @event selected - Dispatches a CustomEvent nav item is selected. Selected item is stored in detail of Custom event
-     * @cssprop --bg-color - Background color
-     * @cssprop --bg-color-hover - Background color when hovered
-     * @cssprop --color - text color
-     * @cssprop --color-hover - text color when hovered
-     * @cssprop --color-selected - text color when item is selected
-     * @cssprop --item-width - Width of nav items
-     * @cssprop --item-height - Height of nav items
-     * @cssprop --margin-top - Margin to the top
-     * @cssprop --min-width - Width of button
-     * @cssprop --position - Possible change position attribute
-     * @cssprop --primary-color - Change primary color easily
-     * @cssprop --shadow-x - Shadow-x of button
-     * @cssprop --shadow-y - Shadow-y of button
+     * Searchbar with suggestions
+     * @event selected - Dispatches a CustomEvent when search item is selected. Selected item is stored in detail of Custom event
+     * @cssprop --box-width - Set to less than 100% to have an animation on focus
+     * @cssprop --bg-color - Background color of navitem
      */
 
 /**
-         * Takes an array to set the nav items of this components
-         * @type {string[]}
-         * @memberof BroncoLeftNavbar
+         *
+         * Index of focused suggestion
+         * @type {number}
+         * @memberof BroncoSearchbar
          */
 
 /**
-         * Sets selected item. Default is first item
-         * @type {string}
-         * @memberof BroncoLeftNavbar
+         * Commit an array with strings to be searched for
+         * @type {string[]}
+         * @memberof BroncoSearchbar
          */
+
+// Clears input field, when clicked outside
+
+// Clears input field, when scrolled
+
+/**
+ * A property decorator that converts a class property into a getter
+ * that executes a querySelectorAll on the element's renderRoot.
+ *
+ * @ExportDecoratedItems
+ */
 
 // This callback is called once the class is otherwise fully defined

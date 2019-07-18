@@ -103,10 +103,9 @@ export class BroncoSearchbar extends LitElement {
         <input @keyup=${(e: KeyboardEvent) => this.handleKeyEvents(e)} tabindex="0" autocomplete="off" id="input"
         class="searchInput" type="text" name="" placeholder="Search">
         <button  @keyup=${(e: KeyboardEvent) => e.key === 'Enter' ? this.clearInput() : ''} tabindex="0" class="clearBtn">
-          ${this.inputElement && this.inputElement.value ? html` <i @click=${()=> this.clearInput()}
-            class="material-icons">
-            delete_forever
-          </i>` : ''}
+          ${this.inputElement && this.inputElement.value ? html` <bronco-icon @click=${()=> this.clearInput()}
+            class="material-icons" iconName="delete_forever">
+          </bronco-icon>` : ''}
         </button>
 
         <!-- Search preview -->
