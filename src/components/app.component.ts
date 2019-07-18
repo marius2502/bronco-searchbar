@@ -77,7 +77,7 @@ export class BroncoSearchbar extends LitElement {
     console.log(this.searchArray);
     this.inputElement.addEventListener('keyup', () => {
       if (this.inputElement.value.length > 0) {
-        this.filteredArray = this.searchArray.filter(word => word.includes(this.inputElement.value.toLowerCase()));
+        this.filteredArray = this.searchArray.filter(word => word.toLowerCase().includes(this.inputElement.value.toLowerCase()));
       }
       else {
         this.filteredArray = undefined;
